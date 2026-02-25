@@ -241,8 +241,18 @@ const scrollToBottom = () => {
     <div className="flex h-[100dvh] w-full bg-black grid-bg relative overflow-hidden">
 
 
+{/* MOBILE SIDEBAR BACKDROP */}
+{isSidebarOpen && (
+  <div
+    className="fixed inset-0 bg-black/40 z-30 md:hidden"
+    onClick={() => setIsSidebarOpen(false)}
+  />
+)}
+
+
       {/* Sidebar */}
       <motion.aside
+  onClick={(e) => e.stopPropagation()}    
   initial={false}
   animate={{
   width: window.innerWidth >= 768 ? (isSidebarOpen ? 300 : 80) : 300,
@@ -265,14 +275,6 @@ const scrollToBottom = () => {
   md:relative md:translate-x-0 md:w-auto
 `}
 >
-
-{isSidebarOpen && (
-  <div
-    className="fixed inset-0 bg-black/10 z-30 md:hidden"
-    onClick={() => setIsSidebarOpen(false)}
-  />
-)}
-
 
   {/* TOP BAR */}
   <div className={`p-4 flex items-center ${isSidebarOpen ? "justify-between" : "justify-center"}`}>
