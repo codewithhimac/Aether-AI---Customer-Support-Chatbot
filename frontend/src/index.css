@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- BASE (global styles first) ---------- */
+
+@layer base {
+  body {
+    @apply bg-black text-white antialiased;
+  }
+}
+
+/* ---------- COMPONENTS (custom classes) ---------- */
+
+@layer components {
+
+  .glass-panel {
+    @apply bg-surface backdrop-blur-glass border border-border shadow-soft;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+}
+.prose {
+  @apply text-zinc-200;
+}
+
+html, body, #root {
+  height: 100%;
+}
